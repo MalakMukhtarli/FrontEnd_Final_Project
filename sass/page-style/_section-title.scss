@@ -1,0 +1,42 @@
+.text-content {
+  margin-bottom: 60px;
+  h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  h2 {
+    padding-bottom: 20px;
+    margin: 0;
+    position: relative;
+    font-weight: 600;
+
+    &::before {
+      @include underline(40px, -25px);
+    }
+
+    &::after {
+      @include underline(5px, 20px);
+    }
+  }
+
+  p {
+    margin: 20px 0 0 0;
+    padding: 0 5.9%;
+  }
+}
+
+@media (max-width: 767px) {
+  .text-content {
+    margin-bottom: 40px;
+
+    h4 {
+      font-size: 18px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+  }
+}

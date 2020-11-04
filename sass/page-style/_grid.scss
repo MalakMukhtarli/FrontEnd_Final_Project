@@ -1,0 +1,25 @@
+// news section for style
+#news {
+  .pagination {
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+
+    li a {
+      color: $primary-color;
+      padding: 15px 20px;
+      margin: 5px;
+      margin-bottom: 0;
+      border-radius: 10px;
+    }
+
+    .active a {
+      background-color: $primary-color;
+      color: #ffffff;
+      border-color: transparent;
+    }
+  }
+}
+#news.bg-color {
+  background-color: transparent !important;
+}

@@ -1,0 +1,33 @@
+@mixin afterBefore($bg-color, $size) {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: $size;
+  width: $size;
+  background-color: $bg-color;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+@mixin underline($myWidth, $myMargin) {
+  content: "";
+  background: #1ebeb6 none repeat scroll 0 0;
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  left: 50%;
+  width: $myWidth;
+  margin-left: $myMargin;
+}
+
+@mixin btn-transparent($top-bottom, $left-right) {
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  border-radius: 40px;
+  font-weight: 700;
+  margin-top: 15px;
+  padding: $top-bottom $left-right;
+  font-size: 14px;
+}

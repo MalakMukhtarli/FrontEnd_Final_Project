@@ -1,0 +1,98 @@
+//services-forAbout section for style
+.bg-color {
+  background-color: #f7f7f7 !important;
+}
+
+// counter-up-area section for style
+
+#counter-up-area {
+  padding-bottom: 120px;
+  position: relative;
+  z-index: 1;
+  background-color: #f7f7f7;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    height: 50%;
+    width: 100%;
+    background: #ffffff;
+    z-index: -1;
+  }
+
+  .bg {
+    padding: 120px 50px;
+    background: linear-gradient(
+      90deg,
+      rgba(30, 190, 182, 1) 0%,
+      rgba(0, 130, 124, 1) 100%
+    );
+    position: relative;
+    z-index: 0;
+
+    &::after {
+      content: "";
+      background: url(../../img/breadcrumb-bg.png) no-repeat;
+      background-size: cover;
+      background-position: center left;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0.3;
+    }
+  }
+
+  .counter-item {
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    z-index: 9;
+
+    .number {
+      font-size: 40px;
+      font-weight: 800;
+
+      animation-duration: 1s;
+      animation-delay: 0s;
+    }
+
+    .plus {
+      font-size: 35px;
+      font-weight: 600;
+      padding-bottom: 20px;
+    }
+
+    h6 {
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: #ffffff;
+    }
+  }
+}
+
+// // // // // // // # # # RESPONSIVE # # # // // // // // // //
+
+@media (max-width: 991px) {
+  .md-margin {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .sm-margin {
+    margin-top: 50px;
+  }
+  // breadcrumb-area section for responsive
+
+  // services-forAbout section for responsive
+
+  // clinic section for responsive
+
+  // doctors-forAbout section for responsive
+}

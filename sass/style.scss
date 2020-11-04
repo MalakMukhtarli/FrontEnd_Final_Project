@@ -1,0 +1,1918 @@
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/extend";
+@import "page-style/section-title";
+@import "page-style/about";
+@import "page-style/departments";
+@import "page-style/grid";
+@import "page-style/single";
+@import "page-style/contact";
+
+body {
+  font-family: Inter, sans-serif;
+  line-height: 30px;
+
+  p {
+    font-size: 15px;
+    color: #666666;
+    margin-bottom: 15px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #233645;
+  }
+
+  .primary-color {
+    color: $primary-color;
+  }
+}
+
+// preloader start
+.preloader {
+  background-color: #ffffff;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  display: none;
+}
+.preloader.active {
+  display: flex;
+}
+
+// header style start
+
+header {
+  // header info hisse
+  .header-info {
+    border-bottom: $primary-border;
+    padding: 15px 0;
+    font-size: 15px;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: #252525;
+      font-weight: 700;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .pandemic {
+      a {
+        text-decoration: underline;
+        font-weight: 600;
+      }
+    }
+
+    .appoinment {
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+
+      &::after {
+        @extend %after-border;
+      }
+    }
+
+    .mail {
+      display: inline-block;
+      padding: 0 14px;
+    }
+
+    .sosial-link {
+      display: inline-block;
+
+      ul {
+        list-style: none;
+
+        li {
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+
+  //   header-link nav hisse
+
+  .header-link {
+    padding-bottom: 0;
+    padding-top: 0;
+    box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.04);
+    color: #666666;
+
+    img {
+      padding: 16px 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    #menu {
+      margin: 0;
+      padding: 0;
+
+      .active > a {
+        color: $primary-color !important;
+      }
+
+      .nav-item {
+        padding: 24px 8px;
+        font-size: 13px;
+        font-weight: 600;
+
+        a {
+          text-decoration: none;
+          color: #233645;
+          letter-spacing: 1px;
+          transition: all 1s;
+        }
+        i.fa-angle-right {
+          display: none;
+        }
+      }
+
+      .hover {
+        position: relative;
+
+        .dropdown {
+          position: absolute;
+          top: 93px;
+          left: 0;
+          width: 250px;
+          display: none;
+          background-color: white;
+          z-index: 2;
+
+          li {
+            font-size: 14px;
+            border-bottom: $primary-border;
+            padding: 10px;
+
+            &:hover a {
+              transition: all 0.7s;
+              color: $primary-color;
+            }
+          }
+        }
+
+        &:hover {
+          .dropdown {
+            display: block;
+            animation: fadeEffect 1.2s;
+          }
+
+          > a {
+            text-decoration: none;
+            transition: all 0.5s;
+            color: $primary-color;
+
+            i.fa-angle-down {
+              transition: color 1s;
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+
+    .number {
+      padding: 16px 0;
+      i {
+        padding-right: 15px;
+        font-size: 46px;
+        color: $primary-color;
+      }
+
+      p {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 27px;
+
+        span {
+          font-size: 18px;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// slider section start
+#slider {
+  #carouselExampleFade {
+    overflow: hidden;
+
+    .carousel-item img {
+      height: 662px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-text {
+      position: absolute;
+      top: 0;
+      left: 0 !important;
+      background-color: #00000071;
+      color: white;
+      height: 100%;
+      width: 100%;
+      padding: 0 190px;
+
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 125px;
+        margin-top: -146px;
+      }
+      i.fa-heartbeat {
+        font-size: 158px;
+        color: #ebebeb33;
+      }
+
+      h4 {
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: white;
+      }
+
+      h1 {
+        font-size: 80px;
+        font-weight: 900;
+        color: white;
+      }
+      h2 {
+        font-size: 80px;
+        font-weight: 300;
+        margin: 0;
+        color: white;
+      }
+
+      a {
+        @extend %btn;
+      }
+    }
+    .carousel-control-next {
+      transition: all 0.5s ease;
+      right: -180px !important;
+    }
+
+    .carousel-control-prev {
+      transition: all 0.5s ease;
+      left: -180px !important;
+    }
+
+    &:hover {
+      .carousel-control-next {
+        right: -90px !important;
+        opacity: 1;
+      }
+
+      .carousel-control-prev {
+        left: -90px !important;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// emergency section start
+#emergency {
+  padding: $primary-padding;
+  text-align: center;
+  i {
+    color: $primary-color;
+    font-size: 40px;
+    position: relative;
+    margin: 35px 0 74px 0;
+
+    &::after {
+      content: "";
+      background: url(../img/emergency/bg-1.svg) no-repeat;
+      position: absolute;
+      background-size: contain;
+      background-position: center;
+      height: 120px;
+      width: 120px;
+      top: -39px;
+      left: -39px;
+      z-index: -1;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+  .img {
+    position: relative;
+
+    &::after {
+      @include afterBefore(#1ebeb6, 300px);
+    }
+
+    &::before {
+      @include afterBefore(#1ebeb617, 350px);
+    }
+  }
+
+  h4 {
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #233645;
+    font-size: 22px;
+  }
+
+  p {
+    padding-bottom: 15px;
+
+    .bolt {
+      font-weight: 600;
+    }
+  }
+
+  .forBorder {
+    border-bottom: 1px dashed #cccccc !important;
+  }
+}
+
+// video modal start
+
+.modal-dialog {
+  width: 900px;
+  max-width: 900px;
+  height: 506px;
+}
+
+.modal-content {
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-body {
+  background: black;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+// about section start
+#about {
+  position: relative;
+  background-color: #f7f7f7;
+  padding: $primary-padding;
+
+  &::before {
+    content: "";
+    background: url(../img/about/about-bg.png) no-repeat;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .myModal {
+    position: relative;
+    z-index: 1;
+    padding-right: 50px;
+    margin-bottom: 50px;
+
+    img {
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+
+    .video-modal {
+      box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.08);
+      padding: 50px 30px;
+      background-color: white;
+      position: absolute;
+      bottom: -50px;
+      right: 0;
+      left: 120px;
+
+      a {
+        display: block;
+        text-align: center;
+        border-radius: 50%;
+        background-color: $primary-color;
+        height: 68px;
+        width: 68px;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+          background-color: #1ebeb65e;
+          animation: pulse-bg 1500ms infinite;
+
+          @keyframes pulse-bg {
+            0% {
+              transform: translateX(-50%) translateY(-50%) translateZ(0)
+                scale(1);
+              opacity: 1;
+            }
+
+            100% {
+              transform: translateX(-50%) translateY(-50%) translateZ(0)
+                scale(1.5);
+              opacity: 0;
+            }
+          }
+        }
+
+        i {
+          font-size: 25px;
+          padding: 22px 26px;
+          color: white;
+          position: relative;
+          z-index: 99;
+        }
+      }
+
+      h5 {
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .appoinment {
+    padding-left: 28px;
+    h5 {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #233645;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+    a {
+      padding: 16px 0;
+      color: #233645;
+      &:hover {
+        text-decoration: none;
+      }
+      h5 {
+        font-weight: 700;
+        color: #233645;
+        margin: 0;
+      }
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    a.btn {
+      margin-top: 30px;
+      @extend %btn;
+    }
+  }
+}
+
+// services section start
+
+#services {
+  position: relative;
+  background-color: #f7f7f7;
+  padding-bottom: 120px;
+
+  &::before {
+    content: "";
+    background: url(../img/services/bg-services.png) no-repeat;
+    background-size: cover;
+    background-position: bottom center !important;
+    margin-bottom: -120px;
+    opacity: 0.08;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .owl-stage-outer {
+    padding: 15px;
+  }
+
+  .item {
+    background-color: white;
+    box-shadow: 0 0 10px #e7e7e7;
+    margin-right: 20px;
+
+    .img {
+      padding: 10px 10px 0 10px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .text {
+      padding: 30px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        background: url(../img/services/card-bg.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: -50px;
+        bottom: -80px;
+        height: 150px;
+        width: 150px;
+        transform: rotate(-45deg);
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      h5 {
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 15px;
+        a {
+          color: #233645;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      p {
+        margin-bottom: 15px;
+
+        span {
+          color: #232323;
+        }
+      }
+
+      .btn {
+        width: 45px;
+        height: 45px;
+        margin-top: 10px;
+        background: $primary-bg-color;
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+
+        &::after {
+          content: "";
+          width: 54px;
+          height: 54px;
+          background: #1ebeb663;
+          border-radius: 50%;
+          position: absolute;
+          top: -6px;
+          left: -6px;
+          z-index: -1;
+        }
+        i {
+          color: white;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    outline: none;
+
+    span {
+      @extend %carousel-span;
+    }
+  }
+  .owl-dot.active span {
+    &::after {
+      @extend %carousel-span-after;
+    }
+  }
+}
+
+// consultation-area section start
+
+#consultation-area {
+  padding: $primary-padding;
+
+  .consultation {
+    padding-right: 65px;
+
+    h2 {
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    .item {
+      margin-top: 30px;
+      border: 2px solid $primary-color;
+      padding: 35px;
+      text-align: center;
+
+      img {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 25px;
+      }
+
+      h5 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .form-box {
+    background-color: $primary-color;
+    padding: 60px 37px;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      background-color: #1ebeb638;
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .form-heading h4 {
+      color: white;
+      font-weight: 600;
+      padding-bottom: 60px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -60px;
+        height: 100%;
+        width: 30%;
+        background: url(../img/consultation/devider-light-consultation.png)
+          no-repeat;
+        transform: translate(-50%, -50%);
+        background-position: center;
+      }
+    }
+
+    input,
+    .select {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 0 25px;
+      min-height: 50px;
+
+      &::placeholder {
+        color: #ffffff;
+      }
+    }
+
+    .select {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 8px;
+      cursor: pointer;
+      position: relative;
+
+      .icon-holder {
+        flex-grow: 1;
+        align-items: center;
+        position: relative;
+
+        i {
+          font-size: 10px;
+          top: 10px;
+          position: absolute;
+          right: -5px;
+        }
+      }
+
+      ul {
+        list-style: none;
+        position: absolute;
+        padding: 0;
+        top: 52px;
+        left: auto;
+        width: 100%;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        z-index: 9;
+        display: none;
+        text-align: left;
+
+        .selected {
+          font-weight: 600;
+          background-color: #f2f2f2;
+          border-radius: 5px;
+        }
+
+        li {
+          padding: 10px;
+        }
+      }
+
+      .rotate {
+        transform: rotate(-180deg);
+        transition: all 0.5s;
+      }
+    }
+
+    button {
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: white;
+      color: $primary-color;
+      font-weight: 600;
+      padding: 12px 40px;
+      width: 100%;
+      border-radius: 30px;
+      min-height: 50px;
+    }
+  }
+}
+
+// clinic section start
+
+#clinic {
+  overflow-x: hidden;
+
+  .image-bg {
+    width: 100%;
+    height: 100%;
+    background: url(../img/clinic/clinic.jpg);
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .clinic-area {
+    max-width: 720px;
+    padding: $primary-padding;
+    padding-left: 0;
+
+    .text-box {
+      padding: 80px 50px;
+      background: #ffffff;
+      box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.08);
+      position: relative;
+      left: -120px;
+      border-bottom: 3px solid $primary-color;
+
+      &::after {
+        content: "";
+        background: url(../img/clinic/dotted-shape-clinic.png) no-repeat;
+        opacity: 0.2;
+        position: absolute;
+        right: -120px;
+        top: -120px;
+        height: 300px;
+        width: 300px;
+        z-index: -1;
+      }
+
+      h5,
+      h2 {
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      a {
+        @extend %btn;
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+// doctors section start
+
+#doctors {
+  padding: $primary-padding;
+  background-color: #f7f7f7;
+
+  .nav {
+    background: rgba(30, 190, 182, 0.1);
+    a {
+      transition: all 1s;
+      color: black;
+      padding: 20px 15px;
+      border-radius: 0;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 45px;
+        margin-right: 15px;
+      }
+    }
+    .active {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+
+  .margin-img,
+  .margin-text {
+    margin-bottom: 20px;
+  }
+
+  .img {
+    height: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .text {
+    background-color: white;
+    padding: 30px 40px;
+    position: relative;
+
+    h6 {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    h4 {
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      @extend %btn;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: -15px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 15px 15px 15px 0;
+      border-color: transparent #ffffff transparent transparent;
+    }
+  }
+}
+
+//testimonials section style start
+
+#testimonials {
+  padding: $primary-padding;
+  position: relative;
+
+  .testimonials-content {
+    &::before {
+      content: "\f10d";
+      position: absolute;
+      left: 165px;
+      top: 78px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      font-size: 120px;
+      opacity: 0.2;
+      color: #ffffff;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -200%;
+      height: 329%;
+      width: 500%;
+      background: $primary-color;
+      z-index: -1;
+    }
+
+    h5 {
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    h2 {
+      font-weight: 600;
+      color: white;
+    }
+    a {
+      background: white;
+      border: 2px solid #ffffff;
+      font-weight: 700;
+      color: #233645;
+      margin-top: 15px;
+      padding: 10px 25px;
+
+      i {
+        font-size: 14px;
+        color: white;
+        background-color: $primary-color;
+        padding: 7px 11px;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .owl-carousel {
+    padding-left: 35px;
+  }
+
+  .owl-stage-outer {
+    padding: 15px;
+  }
+
+  .item {
+    padding: 50px 30px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 0 10px #e7e7e7;
+
+    .img {
+      display: flex;
+      justify-content: center;
+
+      img {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+      }
+    }
+
+    h5 {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .size {
+      font-size: 12px;
+    }
+  }
+  button {
+    margin-top: 20px;
+    outline: none;
+
+    span {
+      @extend %carousel-span;
+    }
+  }
+  .owl-dot.active span {
+    &::after {
+      @extend %carousel-span-after;
+    }
+  }
+}
+
+// news section style start
+
+#news {
+  padding: 120px 0 90px;
+  background-color: #f7f7f7;
+
+  .item {
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px #e7e7e7;
+
+    .img-1 {
+      position: relative;
+
+      &::after {
+        content: "12 JUL";
+        @extend %img-after;
+      }
+
+      &::before {
+        content: "";
+        @extend %img-before;
+      }
+    }
+    .img-2 {
+      position: relative;
+
+      &::after {
+        content: "05 AUG";
+        @extend %img-after;
+      }
+
+      &::before {
+        content: "";
+        @extend %img-before;
+      }
+    }
+    .img-3 {
+      position: relative;
+
+      &::after {
+        content: "27 DEC";
+        @extend %img-after;
+      }
+
+      &::before {
+        content: "";
+        @extend %img-before;
+      }
+    }
+  }
+
+  .text-box {
+    background: #ffffff;
+    padding: 30px;
+
+    img {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    a {
+      color: #252525;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    h4 a,
+    p a {
+      transition: all 0.7s;
+
+      &:hover {
+        transition: all 0.7s;
+        color: $primary-color;
+      }
+    }
+
+    h4 {
+      font-weight: 600;
+      margin: 15px 0;
+      font-size: 22px;
+    }
+
+    .forBorder {
+      border-top: $primary-border;
+      padding-top: 20px;
+      margin-top: 20px;
+      margin-bottom: 0;
+
+      span {
+        font-weight: 600;
+      }
+
+      &:last-child {
+        line-height: 44px;
+
+        i {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+// contact section style start
+
+#contact {
+  padding: $primary-padding;
+
+  .contact-content {
+    background: url(../img/contact/contact-img.jpg) no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+
+    .info {
+      position: absolute;
+      left: 30px;
+      bottom: 0;
+      padding: 30px;
+      background: #ffffff;
+      right: 30px;
+
+      > span {
+        margin: 0 30px;
+      }
+      h5 {
+        font-weight: 600;
+
+        i {
+          font-size: 30px;
+        }
+      }
+
+      span {
+        color: #666666;
+      }
+    }
+  }
+
+  .form-content {
+    padding-left: 20px;
+  }
+
+  .send-message h2 {
+    font-weight: 600;
+
+    &:last-of-type {
+      margin-bottom: 20px;
+    }
+  }
+  input,
+  textarea {
+    border: 0;
+    border-bottom: $primary-border;
+  }
+
+  button {
+    @extend %btn;
+    border-radius: 30px;
+    font-size: 15px;
+    padding: 12px 35px;
+  }
+}
+
+// footer style start
+footer {
+  background: #001d4c;
+
+  .forPadding {
+    padding: 120px 0;
+  }
+
+  .contact,
+  p,
+  a {
+    color: #96aac1 !important;
+  }
+
+  img {
+    margin-bottom: 30px;
+  }
+
+  h5 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 30px;
+
+    i {
+      font-size: 30px;
+      min-width: 50px;
+    }
+  }
+
+  h6 {
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  h4 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 15px;
+    color: #ffffff66;
+    font-weight: 600;
+
+    a {
+      font-size: 15px;
+
+      &:hover {
+        text-decoration: none;
+        color: #96aac1;
+      }
+    }
+  }
+
+  .address {
+    padding: 37px;
+    background: #ffffff0d;
+    border-bottom: 2px solid $primary-color;
+  }
+
+  // footer-bottom hisse
+
+  .footer-bottom {
+    background: #ffffff08;
+    border-top: 1px solid #ffffff1a;
+    padding: 20px 0;
+
+    .social li,
+    .social a,
+    .social i,
+    .validtemplatess,
+    .validtemplatess a {
+      color: #ffffff !important;
+    }
+
+    p,
+    ul {
+      margin: 0;
+    }
+
+    a {
+      font-weight: 600;
+    }
+
+    i {
+      margin-right: 5px;
+    }
+
+    .social li {
+      margin-left: 20px;
+      margin-bottom: 0;
+      list-style: none;
+    }
+  }
+}
+
+// // // // // // // # # # RESPONSIVE # # # // // // // // // //
+
+@media (max-width: 991px) {
+  // header for responsive
+  header {
+    .header-info p,
+    .sosial {
+      text-align: center !important;
+      margin-bottom: 10px !important;
+    }
+
+    .div-left {
+      display: flex !important;
+    }
+    .div-right {
+      display: none !important;
+    }
+
+    .header-link {
+      padding-left: 69px;
+      padding-right: 69px;
+
+      button {
+        border: 0 !important;
+
+        &:focus {
+          outline: 0;
+        }
+
+        span {
+          color: black;
+          font-size: 18px;
+        }
+      }
+
+      .navbar-brand {
+        position: relative;
+        right: -77px;
+        img {
+          height: 59px;
+          padding: 10px 0 !important;
+        }
+      }
+
+      .number {
+        padding: 4px 0 !important;
+
+        i {
+          font-size: 40px !important;
+          line-height: 60px;
+        }
+      }
+
+      #menu {
+        max-height: 350px;
+        overflow: auto;
+        float: none !important;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin: 0px;
+        box-shadow: 0;
+
+        .hover {
+          position: static !important;
+
+          &:hover .dropdown {
+            display: none;
+          }
+
+          .fa-angle-down {
+            display: none;
+          }
+        }
+
+        .nav-item {
+          padding: 0 !important;
+          font-size: 14px !important;
+
+          &:hover a {
+            color: #252525;
+          }
+
+          .active {
+            color: #252525 !important;
+          }
+
+          a.nav-link {
+            border-bottom: solid 1px #e0e0e0;
+            padding: 10px 0 !important;
+            display: flex;
+            justify-content: space-between;
+
+            i.fa-angle-right {
+              display: inline-block !important;
+              line-height: 30px;
+              // padding-right: 10px;
+            }
+          }
+        }
+
+        .dropdown {
+          width: 100% !important;
+          padding-left: 15px;
+          position: static !important;
+        }
+      }
+    }
+  }
+
+  // slider section for responsive
+
+  #slider {
+    .carousel-item img {
+      height: 553px !important;
+    }
+
+    .carousel-text {
+      padding: 0 35px !important;
+
+      .icon {
+        margin-top: -167px !important;
+        margin-left: -12px !important;
+      }
+
+      h4 {
+        font-size: 22px;
+      }
+    }
+  }
+
+  // emergency section for responsive
+
+  #emergency .emergencyCase,
+  #emergency .img {
+    margin-bottom: 50px;
+  }
+
+  .video {
+    display: flex;
+    justify-content: center;
+  }
+
+  // about section for responsive
+  .myModal {
+    padding-right: 0 !important;
+  }
+
+  #about .appoinment {
+    margin-top: 50px;
+    padding-left: 0 !important;
+  }
+
+  // video modal for responsive
+  .modal-dialog {
+    width: 100%;
+    margin: 0;
+    margin-top: 27%;
+  }
+
+  // services section  for responsive
+  #services {
+    &::before {
+      content: "";
+      background-size: contain;
+    }
+
+    .item {
+      margin-right: 0;
+    }
+  }
+
+  // consultation-area section for responsive
+  #consultation-area {
+    .consultation {
+      padding-right: 0;
+    }
+
+    .form-box {
+      margin-top: 80px;
+      margin-left: 30px;
+    }
+  }
+
+  // clinic section for responsive
+
+  #clinic {
+    margin: 0;
+    padding: 0 15px;
+    padding-bottom: 120px;
+
+    .image-bg {
+      min-height: 300px !important;
+    }
+
+    .clinic-area {
+      max-width: 100%;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding: 0;
+
+      .text-box {
+        position: inherit;
+        padding: 50px 30px;
+        left: 0;
+
+        &::after {
+          content: "";
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  // doctors section for responsive
+  #doctors {
+    .margin-img {
+      margin: 0;
+    }
+    .nav {
+      flex-direction: row !important;
+
+      .md-border {
+        border-right: 15px solid #f7f7f7;
+      }
+
+      a {
+        width: 50%;
+        border-bottom: 15px solid #f7f7f7;
+      }
+    }
+
+    .text {
+      &::after {
+        border-width: 0 15px 15px 15px;
+        top: -14px;
+        left: 47%;
+        border-color: transparent transparent #ffffff transparent;
+      }
+    }
+  }
+
+  // testimonials section for responsive
+  #testimonials {
+    .testimonials-content {
+      text-align: center;
+      &::before {
+        left: 42%;
+        top: -12px;
+      }
+
+      &::after {
+        height: 700%;
+      }
+    }
+
+    .owl-carousel {
+      padding: 15px;
+      margin-top: 30px;
+    }
+  }
+
+  // contact section for responsive
+  #contact {
+    .contact-content {
+      min-height: 400px;
+
+      .info {
+        box-shadow: 0 0 10px #e7e7e7;
+        bottom: -30px;
+      }
+    }
+
+    .form-content {
+      margin-top: 60px;
+      padding-left: 0;
+    }
+  }
+
+  // footer for responsive
+
+  .address,
+  .usefull-links {
+    margin-top: 50px;
+  }
+
+  .footer-bottom {
+    .validtemplatess {
+      text-align: center;
+    }
+    ul {
+      padding-left: 0;
+      justify-content: center;
+      margin-top: 15px !important;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  // header hissenin responsivliyi
+
+  .header-info {
+    display: none;
+  }
+
+  .header-link {
+    padding: 0 15px !important;
+
+    .navbar-brand {
+      position: static !important;
+    }
+
+    #menu {
+      padding: 0 15px !important;
+    }
+
+    .number i,
+    .number p {
+      display: none !important;
+    }
+  }
+
+  // slider ucun responsivlik
+
+  .carousel-item img {
+    height: 334px !important;
+  }
+
+  .carousel-text {
+    padding: 0 35px !important;
+    text-align: center;
+
+    .icon {
+      margin-top: -74px !important;
+      margin-left: 0 !important;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    h1,
+    h2 {
+      font-size: 36px !important;
+    }
+  }
+
+  // emergency section ucun responsivlik
+
+  #emergency {
+    padding: 50px 0;
+    .img {
+      display: none;
+    }
+    h4 {
+      font-size: 18px;
+    }
+  }
+
+  // video modal ucun responsivlik
+
+  .modal-dialog {
+    width: 100%;
+    height: 205px;
+    margin: 0;
+  }
+
+  .modal-content {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 200px;
+  }
+
+  .modal-body {
+    background: black;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  // about section ucun responsivlik
+
+  #about {
+    padding: 50px 0;
+    .myModal {
+      position: static;
+      padding-right: 0;
+
+      img {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .video-modal {
+        position: static;
+        margin-top: 30px;
+
+        .video {
+          margin-bottom: 35px;
+        }
+
+        .content {
+          text-align: center;
+
+          h5 {
+            font-size: 16px;
+            margin-bottom: 15px;
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .appoinment {
+      margin-top: 0;
+      text-align: center;
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .appoinment-queries {
+        display: initial !important;
+        .calendar,
+        .drugs {
+          justify-content: center;
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+
+  // services section ucun responsivlik
+  #services {
+    &::before {
+      content: "";
+      display: none;
+    }
+
+    .text {
+      h5 {
+        font-size: 18px !important;
+      }
+
+      a.btn {
+        margin-top: 25px;
+      }
+
+      p span {
+        display: block;
+      }
+    }
+  }
+
+  // consultation-area section ucun responsivlik
+  #consultation-area {
+    padding: 50px 0;
+
+    .consultation {
+      text-align: center;
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    .form-box {
+      margin-top: 30px;
+      margin-left: 0;
+
+      &::after {
+        content: "";
+        display: none;
+      }
+
+      .form-heading {
+        h4 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  // clinic section ucun responsivlik
+  #clinic {
+    margin: 0;
+    padding: 0;
+
+    h2 {
+      font-size: 26px;
+    }
+
+    h5 {
+      font-size: 16px;
+    }
+  }
+
+  // doctors section ucun responsivlik
+  #doctors {
+    padding: 50px 0;
+    .nav {
+      flex-direction: row !important;
+      margin-bottom: 30px;
+
+      a {
+        width: 100%;
+        border: 0 !important;
+      }
+    }
+
+    .text {
+      &::after {
+        border-width: 0 15px 15px 15px;
+        top: -14px;
+        left: 47%;
+        border-color: transparent transparent #ffffff transparent;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // testimonials section ucun responsivlik
+  #testimonials {
+    padding: 50px 0;
+    .testimonials-content {
+      text-align: center;
+      &::before {
+        left: 33%;
+        top: -12px;
+      }
+
+      &::after {
+        height: 700%;
+      }
+    }
+
+    .owl-carousel {
+      padding: 15px;
+      margin-top: 30px;
+    }
+  }
+
+  // news section ucun responsivlik
+
+  #news .text-box {
+    h4 {
+      font-size: 18px !important;
+    }
+
+    p {
+      justify-content: center !important;
+
+      span {
+        &:first-of-type {
+          display: none !important;
+        }
+
+        &:last-of-type {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // contact section ucun responsivlik
+  #contact {
+    padding: 50px 0;
+
+    .contact-content {
+      .info {
+        flex-direction: column;
+        h5 {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .send-message {
+      text-align: center;
+      h2 {
+        font-size: 26px;
+      }
+    }
+
+    .btn-form {
+      text-align: center;
+    }
+  }
+
+  // footer ucun responsivlik
+
+  .department-links,
+  .usefull-links {
+    margin-top: 50px;
+  }
+}

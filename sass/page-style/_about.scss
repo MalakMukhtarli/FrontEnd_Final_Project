@@ -1,0 +1,372 @@
+// breadcrumb-area section for style
+#breadcrumb-area {
+  padding: 150px 0;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 190, 182, 1) 0%,
+    rgba(0, 130, 124, 1) 100%
+  );
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    background: url(../../img/breadcrumb-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center left;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding: 0;
+      li {
+        color: #ffffff;
+        padding: 0 14px;
+        position: relative;
+        font-family: Inter, sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          &::after {
+            content: "";
+            font-family: "themify";
+            font-weight: 600;
+            color: #ffffff;
+            position: absolute;
+            right: -5px;
+            height: 8px;
+            width: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            top: 10px;
+          }
+        }
+
+        &:nth-of-type(3) {
+          color: #dddddd;
+          text-decoration: underline;
+        }
+
+        i {
+          margin-right: 5px;
+        }
+
+        a {
+          color: #ffffff;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .breadcrumb {
+    background-color: transparent;
+  }
+}
+
+// services-forAbout section for style
+#services-forAbout {
+  padding: 120px 0 90px;
+
+  .owl-stage-outer {
+    margin: -15px -15px;
+    padding: 15px;
+  }
+
+  .item {
+    background-color: white;
+    box-shadow: 0 0 10px #e7e7e7;
+    text-align: center;
+
+    .img {
+      display: inline-block;
+      background: $primary-color;
+      border-radius: 50%;
+      height: 86px;
+      width: 86px;
+      margin-bottom: 35px;
+      line-height: 90px;
+      position: relative;
+
+      img {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+        text-align: center;
+      }
+
+      &::after {
+        content: "";
+        background: url(../../img/services-forAbout/animation-bg.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: -9px;
+        left: -9px;
+        height: 120%;
+        width: 120%;
+        opacity: 0.3;
+        border-radius: 50%;
+      }
+    }
+
+    .carousel-content {
+      padding: 50px 30px;
+      box-shadow: 0 0 10px #e7e7e7;
+
+      &:hover .img {
+        &::after {
+          opacity: 1;
+          animation-name: rotate;
+          animation-duration: 10s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+      }
+
+      a.btn {
+        @include btn-transparent(10px, 25px);
+        transition: all 0.5s;
+
+        i {
+          height: 30px;
+          font-size: 14px;
+          line-height: 17px;
+          color: #ffffff;
+          background-color: $primary-color;
+          padding: 7px 11px;
+          margin-right: 5px;
+          border-radius: 50%;
+          transition: all 0.5s;
+        }
+
+        &:hover {
+          color: #ffffff;
+          background-color: $primary-color;
+          transition: all 0.5s;
+
+          i {
+            background-color: #ffffff;
+            color: $primary-color;
+            transition: all 0.5s;
+          }
+        }
+      }
+
+      h5 {
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 35px;
+
+        a {
+          color: #233645;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    outline: none;
+
+    span {
+      @extend %carousel-span;
+    }
+  }
+  .owl-dot.active span {
+    &::after {
+      @extend %carousel-span-after;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// clinic section for style
+
+#clinic {
+  .text-box {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        float: left;
+        padding: 0 15px 0 35px;
+        width: 50%;
+        margin-top: 20px;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: "\f00c";
+          font-family: "Font Awesome 5 Free";
+          color: #1ebeb6;
+          font-weight: 600;
+        }
+
+        h5 {
+          margin-bottom: 15px !important;
+        }
+        p {
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    ul + a {
+      margin-top: 30px;
+    }
+  }
+}
+
+// doctors-forAbout section for style
+
+#doctors-forAbout {
+  background-color: #f7f7f7;
+  padding: 120px 0 90px;
+
+  .item {
+    margin-bottom: 30px;
+  }
+  .img {
+    position: relative;
+    text-align: center;
+    .contact {
+      background: linear-gradient(90deg, #1ebeb6 0%, #00827c 100%);
+      position: absolute;
+      bottom: -25px;
+      left: 29%;
+      padding: 10px 25px;
+      border-radius: 30px;
+
+      ul {
+        list-style: none;
+        display: flex;
+        position: relative;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        li {
+          padding: 0 10px;
+          a {
+            color: #ffffff;
+          }
+        }
+
+        &::after {
+          content: "|";
+          color: #ffffffb3;
+          position: absolute;
+          top: 0px;
+          left: 34px;
+        }
+      }
+    }
+  }
+
+  .text-box {
+    padding: 50px 30px 30px;
+    background-color: #ffffff;
+    text-align: center;
+
+    h5 {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    p {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// // // // // // // # # # RESPONSIVE # # # // // // // // // //
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+  // breadcrumb-area section for responsive
+  #breadcrumb-area {
+    padding: 80px 0;
+
+    h1 {
+      font-size: 36px;
+    }
+
+    ul {
+      margin-top: 20px;
+    }
+  }
+
+  // services-forAbout section for responsive
+  #services-forAbout {
+    padding: 50px 0 20px;
+  }
+
+  // clinic section for responsive
+  #clinic {
+    padding: 0 15px 50px !important;
+    ul li {
+      width: 100% !important;
+      padding-right: 0 !important;
+
+      h5 {
+        margin-bottom: 10px !important;
+      }
+      p {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  // doctors-forAbout section for responsive
+  #doctors-forAbout {
+    padding: 50px 0 20px;
+
+    .text-box h5 {
+      font-size: 16px;
+    }
+  }
+}
